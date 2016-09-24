@@ -14,9 +14,14 @@ class HowToPlay : public QDialog
 public:
     explicit HowToPlay(QWidget *parent = 0);
     ~HowToPlay();
+    bool isAccepted() const;
+
+private slots:
+    void on_buttonBox_accepted();
 
 private:
     Ui::HowToPlay *ui;
+    bool accepted;
 };
 
 #endif // HOWTOPLAY_H
