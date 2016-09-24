@@ -1,5 +1,6 @@
 #include "dialog.h"
 #include "howtoplay.h"
+#include "game.h"
 #include <QApplication>
 #include <iostream>
 
@@ -15,9 +16,11 @@ int main(int argc, char *argv[])
         how.show();
         a.exec();
     }
+    Game game;
     if(how.isAccepted())
     {
-        std::cout << "OK" << std::endl;
+        game.show();
+        a.exec();
     }
     return 0;
 }

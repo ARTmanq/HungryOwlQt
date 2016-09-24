@@ -15,11 +15,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         dialog.cpp \
     howtoplay.cpp \
-    Field.cpp
+    Field.cpp \
+    game.cpp
 
 HEADERS  += dialog.h \
     howtoplay.h \
-    Field.h
+    Field.h \
+    game.h
 
 FORMS    += dialog.ui \
-    howtoplay.ui
+    howtoplay.ui \
+    game.ui
