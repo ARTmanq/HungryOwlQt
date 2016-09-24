@@ -13,7 +13,8 @@ Game::~Game()
     delete ui;
 }
 
-void Game::on_pushButton_2_clicked()
+void Game::on_r0c0_clicked()
 {
-
+    ui->r0c0->setDisabled(true);
+    ui->r0c0->setText("3");
 }

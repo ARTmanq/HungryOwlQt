@@ -16,7 +16,8 @@ public:
     ~Game();
 
 private slots:
-    void on_pushButton_2_clicked();
+
+    void on_r0c0_clicked();
 
 private:
     Ui::Game *ui;
