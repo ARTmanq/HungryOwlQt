@@ -39,3 +39,26 @@ bool Dialog::isAccepted() const
 {
     return accepted;
 }
+
+void Dialog::setField()
+{
+    switch(difficulty)
+    {
+        case Difficulty::Easy:
+        {
+            field.set(7, 5, 5);
+            break;
+        }
+        case Difficulty::Medium:
+        {
+            field.set(10, 8, 8);
+            break;
+        }
+        case Difficulty::Hard:
+        {
+            field.set(15, 12, 12);
+        }
+        default:
+        {}
+    }
+}

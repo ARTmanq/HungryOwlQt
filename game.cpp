@@ -12,3 +12,8 @@ Game::~Game()
 {
     delete ui;
 }
+
+void Game::on_pushButton_2_clicked()
+{
+
+}

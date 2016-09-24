@@ -15,6 +15,9 @@ public:
     explicit Game(QWidget *parent = 0);
     ~Game();
 
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::Game *ui;
 };

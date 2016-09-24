@@ -23,6 +23,7 @@ public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
     bool isAccepted() const;
+    void setField();
 
 private slots:
     void on_radioButton_clicked();

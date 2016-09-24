@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     Game game;
     if(how.isAccepted())
     {
+        w.setField();
         game.show();
         a.exec();
     }
