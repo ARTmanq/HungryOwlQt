@@ -68,19 +68,17 @@ void Cell::setAnimal(Animal* creature)
 	creature = nullptr;
 }
 
-void Cell::show() const
+QString Cell::show() const
 {
 	if(animal == nullptr)
 	{
-		std::cout << ". ";
+        return ".";
 	}
 	else
-	{
-		std::cout << typeid(*animal).name()[1] << ' ';
+    {
+        return &typeid(*animal).name()[1];
 	}
 }
-
-
 
 Field::Field()
 {
@@ -95,7 +93,7 @@ void Field::set(unsigned int s, unsigned int AoM, unsigned int AoC)
 	amountOfMices = AoM;
 	amountOfCats = AoC;
 	unsigned int i, j, x, y;
-	std::minstd_rand0 gen;
+    std::random_device gen;
 	for(i = 0; i < size; ++i)
 	{
 		std::vector<Cell> currentLine;
@@ -200,3 +198,7 @@ void Field::show() const
 	}
 }
 
+QString Field::status(unsigned int i, unsigned int j) const
+{
+    return field[i][j].show();
+}

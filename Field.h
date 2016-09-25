@@ -5,6 +5,7 @@
 #include <vector>
 #include <random>
 #include <typeinfo>
+#include <QString>
 
 enum class Colors 
 {
@@ -57,7 +58,7 @@ class Cell
 		~Cell();
 		bool isFree() const;
 		void setAnimal(Animal*);
-		void show() const;
+        QString show() const;
 	private:
 		unsigned int detectedAnimals;
 		Colors cellColor;
@@ -73,6 +74,7 @@ class Field
 		void show() const;
 		bool checkCell(unsigned int, unsigned int);
 		void addAnimal(unsigned int, unsigned int, Animal*);
+        QString status(unsigned int, unsigned int) const;
 	private:
 		std::vector<std::vector<Cell> > field;
 		unsigned int size;

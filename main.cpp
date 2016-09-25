@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     Game game;
     if(how.isAccepted())
     {
-        w.setField();
+        game.setField(w.getDifficulty());
         game.show();
         a.exec();
     }

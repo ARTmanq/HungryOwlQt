@@ -1,29 +1,28 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
-#include "Field.h"
 #include <QDialog>
 
 namespace Ui {
 class Dialog;
 }
 
+enum class Difficulty
+{
+    Easy,
+    Medium,
+    Hard
+};
+
 class Dialog : public QDialog
 {
     Q_OBJECT
-
-    enum class Difficulty
-    {
-        Easy,
-        Medium,
-        Hard
-    };
 
 public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
     bool isAccepted() const;
-    void setField();
+    Difficulty getDifficulty() const;
 
 private slots:
     void on_radioButton_clicked();
@@ -36,7 +35,6 @@ private slots:
 
 private:
     Ui::Dialog *ui;
-    Field field;
     Difficulty difficulty;
     bool accepted;
 };
