@@ -98,22 +98,25 @@ Animal* Cell::getAnimal() const
     return animal;
 }
 
-void Cell::setColor(Animal* animal)
+void Cell::setColor(Animal* anim)
 {
-    if(typeid(*animal).name()[1] == 'M')
-     {
-         if(color == Colors::red)
-         {
-             color = Colors::yellow;
-         }
-     }
-     if(typeid(*animal).name()[1] == 'C')
-     {
-         if(color == Colors::green)
-         {
-             color = Colors::red;
-         }
-     }
+    if(anim != nullptr)
+    {
+        if(typeid(*anim).name()[1] == 'M')
+        {
+            if(color == Colors::red)
+            {
+                color = Colors::yellow;
+            }
+        }
+        if(typeid(*anim).name()[1] == 'C')
+        {
+            if(color == Colors::green)
+            {
+                color = Colors::red;
+            }
+        }
+    }
 }
 
 Colors Cell::getColor() const
@@ -264,7 +267,7 @@ void Field::refresh()
                 if(!checkCell(k, j))
                 {
                     field[i][j].incAnimal();
-                    field[i][j].setColor(field[i][l].getAnimal());
+                    field[i][j].setColor(field[k][j].getAnimal());
                 }
             }
         }
