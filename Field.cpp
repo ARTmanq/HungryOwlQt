@@ -286,7 +286,7 @@ QString Field::styleSheet(unsigned int i, unsigned int j) const
     }
     if(field[i][j].getColor() == Colors::yellow)
     {
-        return "color: rgb(255, 255, 0)";
+        return "color: rgb(223, 228, 85)";
     }
     return "color: rgb(255, 255, 255)";
 }
