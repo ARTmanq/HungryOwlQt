@@ -46,7 +46,7 @@ void Cat::move() const
 {}
 
 
-Cell::Cell(): detectedAnimals(0), cellColor(Colors::green), animal(nullptr)
+Cell::Cell(): detectedAnimals(0), color(Colors::green), animal(nullptr)
 {}
 
 Cell::~Cell()
@@ -68,16 +68,52 @@ void Cell::setAnimal(Animal* creature)
 	creature = nullptr;
 }
 
+void Cell::incAnimal()
+{
+    detectedAnimals++;
+}
+
 QString Cell::show() const
 {
 	if(animal == nullptr)
 	{
-        return ".";
+        if(detectedAnimals != 0)
+        {
+            QString ret(detectedAnimals + 48);
+            return ret;
+        }
+        else
+        {
+            return ".";
+        }
 	}
 	else
     {
         return &typeid(*animal).name()[1];
 	}
+}
+
+Animal* Cell::getAnimal() const
+{
+    return animal;
+}
+
+void Cell::setColor(Animal* animal)
+{
+    if(typeid(*animal).name()[1] == 'M')
+     {
+         if(color == Colors::red)
+         {
+             color = Colors::yellow;
+         }
+     }
+     if(typeid(*animal).name()[1] == 'C')
+     {
+         if(color == Colors::green)
+         {
+             color = Colors::red;
+         }
+     }
 }
 
 Field::Field()
@@ -185,7 +221,7 @@ void Field::addAnimal(unsigned int x, unsigned int y, Animal* animal)
 	animal = nullptr;
 }
 
-void Field::show() const
+void Field::show()
 {
 	unsigned int i, j;
 	for(i = 0; i < size; ++i)
@@ -201,4 +237,31 @@ void Field::show() const
 QString Field::status(unsigned int i, unsigned int j) const
 {
     return field[i][j].show();
+}
+
+void Field::refresh()
+{
+    unsigned int i, j, k, l;
+    for(i = 0; i < size; ++i)
+    {
+        for(j = 0; j < size; ++j)
+        {
+            for(l = 0; l < size; ++l)
+            {
+                if(!checkCell(i, l))
+                {
+                    field[i][j].incAnimal();
+                    field[i][j].setColor(field[i][l].getAnimal());
+                }
+            }
+            for(k = 0; k < size; ++k)
+            {
+                if(!checkCell(k, j))
+                {
+                    field[i][j].incAnimal();
+                    field[i][j].setColor(field[i][l].getAnimal());
+                }
+            }
+        }
+    }
 }

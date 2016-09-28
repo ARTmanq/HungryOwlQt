@@ -59,9 +59,12 @@ class Cell
 		bool isFree() const;
 		void setAnimal(Animal*);
         QString show() const;
+        void incAnimal();
+        void setColor(Animal*);
+        Animal* getAnimal() const;
 	private:
 		unsigned int detectedAnimals;
-		Colors cellColor;
+        Colors color;
 		Animal *animal;
 };
 
@@ -71,10 +74,12 @@ class Field
 		Field();
 		~Field();
 		void set(unsigned int, unsigned int, unsigned int); 
-		void show() const;
+        void show();
 		bool checkCell(unsigned int, unsigned int);
 		void addAnimal(unsigned int, unsigned int, Animal*);
         QString status(unsigned int, unsigned int) const;
+        void refresh();
+        QString styleSheet(unsigned int, unsigned int);
 	private:
 		std::vector<std::vector<Cell> > field;
 		unsigned int size;

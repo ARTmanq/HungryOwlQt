@@ -35,23 +35,27 @@ void Game::setField(Difficulty difficulty)
         default:
         {}
     }
+    field.refresh();
 }
 
 void Game::on_r0c0_clicked()
 {
     ui->r0c0->setDisabled(true);
+    ui->r0c0->setStyleSheet("color: rgb(255, 0, 0)");
     ui->r0c0->setText(field.status(0, 0));
 }
 
 void Game::on_r0c1_clicked()
 {
     ui->r0c1->setDisabled(true);
+    ui->r0c1->setStyleSheet("color: rgb(255, 255, 0)");
     ui->r0c1->setText(field.status(0, 1));
 }
 
 void Game::on_r0c2_clicked()
 {
     ui->r0c2->setDisabled(true);
+    ui->r0c2->setStyleSheet("color: rgb(0, 255, 0)");
     ui->r0c2->setText(field.status(0, 2));
 }
 
