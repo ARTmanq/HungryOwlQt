@@ -62,6 +62,7 @@ class Cell
         void incAnimal();
         void setColor(Animal*);
         Animal* getAnimal() const;
+        Colors getColor() const;
 	private:
 		unsigned int detectedAnimals;
         Colors color;
@@ -79,7 +80,7 @@ class Field
 		void addAnimal(unsigned int, unsigned int, Animal*);
         QString status(unsigned int, unsigned int) const;
         void refresh();
-        QString styleSheet(unsigned int, unsigned int);
+        QString styleSheet(unsigned int, unsigned int) const;
 	private:
 		std::vector<std::vector<Cell> > field;
 		unsigned int size;

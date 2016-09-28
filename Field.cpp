@@ -116,6 +116,11 @@ void Cell::setColor(Animal* animal)
      }
 }
 
+Colors Cell::getColor() const
+{
+    return color;
+}
+
 Field::Field()
 {
 	size = 0;
@@ -264,4 +269,21 @@ void Field::refresh()
             }
         }
     }
+}
+
+QString Field::styleSheet(unsigned int i, unsigned int j) const
+{
+    if(field[i][j].getColor() == Colors::green)
+    {
+        return "color: rgb(0, 255, 0)";
+    }
+    if(field[i][j].getColor() == Colors::red)
+    {
+        return "color: rgb(255, 0, 0)";
+    }
+    if(field[i][j].getColor() == Colors::yellow)
+    {
+        return "color: rgb(255, 255, 0)";
+    }
+    return "color: rgb(255, 255, 255)";
 }

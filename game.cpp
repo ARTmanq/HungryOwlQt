@@ -41,45 +41,49 @@ void Game::setField(Difficulty difficulty)
 void Game::on_r0c0_clicked()
 {
     ui->r0c0->setDisabled(true);
-    ui->r0c0->setStyleSheet("color: rgb(255, 0, 0)");
+    ui->r0c0->setStyleSheet(field.styleSheet(0, 0));
     ui->r0c0->setText(field.status(0, 0));
 }
 
 void Game::on_r0c1_clicked()
 {
     ui->r0c1->setDisabled(true);
-    ui->r0c1->setStyleSheet("color: rgb(255, 255, 0)");
+    ui->r0c1->setStyleSheet(field.styleSheet(0, 1));
     ui->r0c1->setText(field.status(0, 1));
 }
 
 void Game::on_r0c2_clicked()
 {
     ui->r0c2->setDisabled(true);
-    ui->r0c2->setStyleSheet("color: rgb(0, 255, 0)");
+    ui->r0c2->setStyleSheet(field.styleSheet(0, 2));
     ui->r0c2->setText(field.status(0, 2));
 }
 
 void Game::on_r0c3_clicked()
 {
     ui->r0c3->setDisabled(true);
+    ui->r0c2->setStyleSheet(field.styleSheet(0, 3));
     ui->r0c3->setText(field.status(0, 3));
 }
 
 void Game::on_r0c4_clicked()
 {
     ui->r0c4->setDisabled(true);
+    ui->r0c2->setStyleSheet(field.styleSheet(0, 4));
     ui->r0c4->setText(field.status(0, 4));
 }
 
 void Game::on_r0c5_clicked()
 {
     ui->r0c5->setDisabled(true);
+    ui->r0c2->setStyleSheet(field.styleSheet(0, 5));
     ui->r0c5->setText(field.status(0, 5));
 }
 
 void Game::on_r0c6_clicked()
 {
     ui->r0c6->setDisabled(true);
+    ui->r0c2->setStyleSheet(field.styleSheet(0, 6));
     ui->r0c6->setText(field.status(0, 6));
 }
 
