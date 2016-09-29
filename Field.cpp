@@ -46,7 +46,7 @@ void Cat::move() const
 {}
 
 
-Cell::Cell(): detectedAnimals(0), color(Colors::green), animal(nullptr)
+Cell::Cell(): detectedAnimals(0), color(Colors::grey), animal(nullptr)
 {}
 
 Cell::~Cell()
@@ -104,6 +104,10 @@ void Cell::setColor(Animal* anim)
     {
         if(typeid(*anim).name()[1] == 'M')
         {
+            if(color == Colors::grey)
+            {
+                color = Colors::green;
+            }
             if(color == Colors::red)
             {
                 color = Colors::yellow;
@@ -111,9 +115,13 @@ void Cell::setColor(Animal* anim)
         }
         if(typeid(*anim).name()[1] == 'C')
         {
-            if(color == Colors::green)
+            if(color == Colors::grey)
             {
                 color = Colors::red;
+            }
+            if(color == Colors::green)
+            {
+                color = Colors::yellow;
             }
         }
     }
@@ -288,5 +296,5 @@ QString Field::styleSheet(unsigned int i, unsigned int j) const
     {
         return "color: rgb(223, 228, 85)";
     }
-    return "color: rgb(255, 255, 255)";
+    return "color: rgb(207, 210, 175)";
 }

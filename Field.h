@@ -12,6 +12,7 @@ enum class Colors
 	green,
 	yellow,
 	red,
+    grey
 };
 
 class Animal
