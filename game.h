@@ -4,6 +4,7 @@
 #include "Field.h"
 #include "dialog.h"
 #include <QDialog>
+#include <QLCDNumber>
 
 namespace Ui {
 class Game;
@@ -121,6 +122,8 @@ private slots:
 private:
     Ui::Game *ui;
     Field field;
+    int steps;
+    void buttonClicked(QPushButton*, QLCDNumber*, unsigned int, unsigned int);
 };
 
 #endif // GAME_H
