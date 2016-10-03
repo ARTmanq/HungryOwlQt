@@ -1,6 +1,7 @@
 #include "dialog.h"
 #include "howtoplay.h"
 #include "game.h"
+#include "gamemedium.h"
 #include "win.h"
 #include "loss.h"
 #include <QApplication>
@@ -19,12 +20,21 @@ int main(int argc, char *argv[])
         a.exec();
     }
     Game game;
+    GameMedium gameMedium;
     Win win;
     Loss loss;
     if(how.isAccepted())
     {
-        game.setField(w.getDifficulty());
-        game.show();
+        if(w.getDifficulty() == Difficulty::Easy)
+        {
+            game.setField();
+            game.show();
+        }
+        if(w.getDifficulty() == Difficulty::Medium)
+        {
+            gameMedium.setField();
+            gameMedium.show();
+        }
         a.exec();
     }
     if(game.isAccepted())

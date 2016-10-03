@@ -17,27 +17,10 @@ Game::~Game()
     delete ui;
 }
 
-void Game::setField(Difficulty difficulty)
+void Game::setField()
 {
-    switch(difficulty)
-    {
-        case Difficulty::Easy:
-        {
-            field.set(7, 5, 5);
-            break;
-        }
-        case Difficulty::Medium:
-        {
-            field.set(10, 8, 8);
-            break;
-        }
-        case Difficulty::Hard:
-        {
-            field.set(15, 12, 12);
-        }
-        default:
-        {}
-    }
+    field.set(7, 5, 5);
+     // field.set(15, 12, 12);
     field.refresh();
     currentAmountOfMice = field.getAmountOfMice();
     currentOwlHP = field.getOwlHP();

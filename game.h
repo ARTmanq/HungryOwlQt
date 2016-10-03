@@ -18,7 +18,7 @@ class Game : public QDialog
 public:
     explicit Game(QWidget *parent = 0);
     ~Game();
-    void setField(Difficulty);
+    void setField();
     bool isAccepted() const;
 
 private slots:
