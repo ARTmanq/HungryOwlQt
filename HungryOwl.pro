@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     game.cpp \
     win.cpp \
     loss.cpp \
-    gamemedium.cpp
+    gamemedium.cpp \
+    gamehard.cpp
 
 HEADERS  += dialog.h \
     howtoplay.h \
@@ -27,11 +28,13 @@ HEADERS  += dialog.h \
     game.h \
     win.h \
     loss.h \
-    gamemedium.h
+    gamemedium.h \
+    gamehard.h
 
 FORMS    += dialog.ui \
     howtoplay.ui \
     game.ui \
     win.ui \
     loss.ui \
-    gamemedium.ui
+    gamemedium.ui \
+    gamehard.ui
