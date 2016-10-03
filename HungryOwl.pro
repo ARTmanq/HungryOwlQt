@@ -16,13 +16,22 @@ SOURCES += main.cpp\
         dialog.cpp \
     howtoplay.cpp \
     Field.cpp \
-    game.cpp
+    game.cpp \
+    win.cpp \
+    loss.cpp \
+    gamemedium.cpp
 
 HEADERS  += dialog.h \
     howtoplay.h \
     Field.h \
-    game.h
+    game.h \
+    win.h \
+    loss.h \
+    gamemedium.h
 
 FORMS    += dialog.ui \
     howtoplay.ui \
-    game.ui
+    game.ui \
+    win.ui \
+    loss.ui \
+    gamemedium.ui

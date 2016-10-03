@@ -15,6 +15,11 @@ void Animal::injure()
 void Animal::move() const
 {}
 
+unsigned int Animal::getHP() const
+{
+    return HP;
+}
+
 Owl::Owl(): Animal(3)
 {}
 
@@ -252,7 +257,8 @@ void Field::show()
 
 QString Field::status(unsigned int i, unsigned int j) const
 {
-    return field[i][j].show();
+    QString ret(field[i][j].show()[0]);
+    return ret;
 }
 
 void Field::refresh()
@@ -297,4 +303,14 @@ QString Field::styleSheet(unsigned int i, unsigned int j) const
         return "color: rgb(223, 228, 85)";
     }
     return "color: rgb(207, 210, 175)";
+}
+
+unsigned int Field::getAmountOfMice() const
+{
+    return amountOfMices;
+}
+
+unsigned int Field::getOwlHP() const
+{
+    return owl.getHP();
 }

@@ -23,6 +23,7 @@ class Animal
 		virtual ~Animal();
 		virtual void injure();
 		virtual void move() const;
+        unsigned int getHP() const;
 	private:
 		unsigned int HP;
 };
@@ -82,11 +83,14 @@ class Field
         QString status(unsigned int, unsigned int) const;
         void refresh();
         QString styleSheet(unsigned int, unsigned int) const;
+        unsigned int getAmountOfMice() const;
+        unsigned int getOwlHP() const;
 	private:
 		std::vector<std::vector<Cell> > field;
 		unsigned int size;
 		unsigned int amountOfMices;
 		unsigned int amountOfCats;
+        Owl owl;
 };
 
 #endif

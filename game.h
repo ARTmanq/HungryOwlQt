@@ -5,6 +5,7 @@
 #include "dialog.h"
 #include <QDialog>
 #include <QLCDNumber>
+#include <QProgressBar>
 
 namespace Ui {
 class Game;
@@ -18,6 +19,7 @@ public:
     explicit Game(QWidget *parent = 0);
     ~Game();
     void setField(Difficulty);
+    bool isAccepted() const;
 
 private slots:
 
@@ -122,8 +124,10 @@ private slots:
 private:
     Ui::Game *ui;
     Field field;
-    int steps;
-    void buttonClicked(QPushButton*, QLCDNumber*, unsigned int, unsigned int);
+    int steps, currentAmountOfMice, currentOwlHP;
+    bool acceptd;
+
+    void buttonClicked(QPushButton*, unsigned int, unsigned int);
 };
 
 #endif // GAME_H
