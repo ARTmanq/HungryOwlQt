@@ -19,7 +19,6 @@ GameMedium::~GameMedium()
 void GameMedium::setField()
 {
     field.set(10, 8, 8);
-           //field.set(15, 12, 12);
     field.refresh();
     currentAmountOfMice = field.getAmountOfMice();
     currentOwlHP = field.getOwlHP();

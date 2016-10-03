@@ -26,7 +26,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Easy mode</string>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">

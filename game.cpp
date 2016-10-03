@@ -20,7 +20,6 @@ Game::~Game()
 void Game::setField()
 {
     field.set(7, 5, 5);
-     // field.set(15, 12, 12);
     field.refresh();
     currentAmountOfMice = field.getAmountOfMice();
     currentOwlHP = field.getOwlHP();

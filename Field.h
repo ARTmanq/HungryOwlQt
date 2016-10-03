@@ -21,8 +21,6 @@ class Animal
 		Animal();
 		Animal(unsigned int);
 		virtual ~Animal();
-		virtual void injure();
-		virtual void move() const;
         unsigned int getHP() const;
 	private:
 		unsigned int HP;
@@ -32,9 +30,7 @@ class Owl : public Animal
 {
 	public:
 		Owl();
-		virtual ~Owl();
-		void move(unsigned int, unsigned int) const;
-		void attack();
+        virtual ~Owl();
 };
 
 class Mouse : public Animal
@@ -42,7 +38,6 @@ class Mouse : public Animal
 	public:
 		Mouse();
 		virtual ~Mouse();
-		void move() const;
 };
 
 class Cat: public Animal
@@ -50,7 +45,6 @@ class Cat: public Animal
 	public:
 		Cat();
 		virtual ~Cat();
-		void move() const;
 };
 
 class Cell
@@ -77,7 +71,6 @@ class Field
 		Field();
 		~Field();
 		void set(unsigned int, unsigned int, unsigned int); 
-        void show();
 		bool checkCell(unsigned int, unsigned int);
 		void addAnimal(unsigned int, unsigned int, Animal*);
         QString status(unsigned int, unsigned int) const;

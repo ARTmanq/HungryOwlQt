@@ -9,12 +9,6 @@ Animal::Animal(unsigned int hp): HP(hp)
 Animal::~Animal()
 {}
 
-void Animal::injure()
-{}
-
-void Animal::move() const
-{}
-
 unsigned int Animal::getHP() const
 {
     return HP;
@@ -26,30 +20,17 @@ Owl::Owl(): Animal(3)
 Owl::~Owl()
 {}
 
-void Owl::move(unsigned int x, unsigned int y) const
-{}
-
-void Owl::attack()
-{}
-
 Mouse::Mouse(): Animal(1)
 {}
 
 Mouse::~Mouse()
 {}
 
-void Mouse::move() const
-{}
-
-Cat::Cat(): Animal(2)
+Cat::Cat(): Animal(1)
 {}
 
 Cat::~Cat()
 {}
-
-void Cat::move() const
-{}
-
 
 Cell::Cell(): detectedAnimals(0), color(Colors::grey), animal(nullptr)
 {}
@@ -163,7 +144,7 @@ void Field::set(unsigned int s, unsigned int AoM, unsigned int AoC)
 			}
 			catch(std::bad_alloc &ba)
 			{
-				throw("!!!Not enough memory!!!");
+                throw(&ba);
 			}
 		}
 		try
@@ -172,7 +153,7 @@ void Field::set(unsigned int s, unsigned int AoM, unsigned int AoC)
 		}
 		catch(std::bad_alloc &ba)
 		{
-			throw("!!!Not enough memory!!!");
+            throw(&ba);
 		}
 	}
 	for(i = 0; i < amountOfMices; ++i)
@@ -188,7 +169,7 @@ void Field::set(unsigned int s, unsigned int AoM, unsigned int AoC)
 			}
 			catch(std::bad_alloc &ba)
 			{
-				throw("!!!Not enough memory!!!");
+                throw(&ba);
 			}
 		}
 	}
@@ -205,7 +186,7 @@ void Field::set(unsigned int s, unsigned int AoM, unsigned int AoC)
 			}
 			catch(std::bad_alloc &ba)
 			{
-				throw("!!!Not enough memory!!!");
+                throw(&ba);
 			}
 		}
 	}
@@ -225,7 +206,7 @@ bool Field::checkCell(unsigned int x, unsigned int y)
 	}
 	catch(std::out_of_range &oor)
 	{
-		throw("!!!Out of range in function Field.checkCell!!!");
+        throw(&oor);
 	}
 }
 
@@ -237,22 +218,9 @@ void Field::addAnimal(unsigned int x, unsigned int y, Animal* animal)
 	}
 	catch(std::out_of_range &oor)
 	{
-		throw("!!!Out of range in function Field.addAnimal!!!");
+        throw(&oor);
 	}
 	animal = nullptr;
-}
-
-void Field::show()
-{
-	unsigned int i, j;
-	for(i = 0; i < size; ++i)
-	{
-		for(j = 0; j < size; ++j)
-		{
-			field[i][j].show();
-		}
-		std::cout << std::endl;
-	}
 }
 
 QString Field::status(unsigned int i, unsigned int j) const
@@ -290,19 +258,25 @@ void Field::refresh()
 
 QString Field::styleSheet(unsigned int i, unsigned int j) const
 {
-    if(field[i][j].getColor() == Colors::green)
-    {
-        return "color: rgb(0, 255, 0)";
+    try{
+        if(field[i][j].getColor() == Colors::green)
+        {
+            return "color: rgb(0, 255, 0)";
+        }
+        if(field[i][j].getColor() == Colors::red)
+        {
+            return "color: rgb(255, 0, 0)";
+        }
+        if(field[i][j].getColor() == Colors::yellow)
+        {
+            return "color: rgb(223, 228, 85)";
+        }
+        return "color: rgb(207, 210, 175)";
     }
-    if(field[i][j].getColor() == Colors::red)
+    catch(std::out_of_range &oor)
     {
-        return "color: rgb(255, 0, 0)";
+        throw(&oor);
     }
-    if(field[i][j].getColor() == Colors::yellow)
-    {
-        return "color: rgb(223, 228, 85)";
-    }
-    return "color: rgb(207, 210, 175)";
 }
 
 unsigned int Field::getAmountOfMice() const

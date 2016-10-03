@@ -3,7 +3,10 @@
 
 GameHard::GameHard(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::GameHard)
+    ui(new Ui::GameHard),
+    steps(0),
+    currentAmountOfMice(0),
+    acceptd(false)
 {
     ui->setupUi(this);
 }
